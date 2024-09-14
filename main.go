@@ -34,6 +34,7 @@ func main() {
 		fmt.Println(value)
 
 		// write message to client
-		conn.Write([]byte("+PONG\r\n"))
+		writer := NewWriter(conn)
+		writer.Write(Value{typ: "string", str: "OK"})
 	}
 }
